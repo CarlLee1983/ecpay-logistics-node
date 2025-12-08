@@ -2,6 +2,10 @@
   "name": "@carllee1983/ecpay-logistics",
   "version": "1.1.0",
   "description": "Unofficial ECPay Logistics (綠界物流) SDK for Node.js. Supports CVS (B2C/C2C), Home Delivery (TCAT/Post), and Map Interface. Type-safe & Bun-compatible.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlLee1983/ecpay-logistics-node.git"
+  },
   "type": "module",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
