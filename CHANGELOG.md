@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/CarlLee1983/ecpay-logistics-node/compare/v1.1.0...v1.1.1) (2025-12-08)
+
+
+### Bug Fixes
+
+* add repository field for npm provenance ([c7846af](https://github.com/CarlLee1983/ecpay-logistics-node/commit/c7846af8df9238fc4ebaf4c5b08ecfc6cf993ab5))
+
 ## [1.1.0](https://github.com/CarlLee1983/ecpay-logistics-node/compare/v1.0.0...v1.1.0) (2025-12-08)
 
 
