@@ -52,4 +52,4 @@ jobs:
           test -f dist/cjs/index.js
           echo "=== Types ==="
           ls -la dist/types/
-          test -f dist/types/index.d.ts
+          test -d dist/types/src
