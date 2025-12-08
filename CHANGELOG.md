@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/CarlLee1983/ecpay-logistics-node/compare/v1.0.0...v1.1.0) (2025-12-08)
+
+
+### Features
+
+* update package name to scoped `@carllee1983/ecpay-logistics` ([a7868e3](https://github.com/CarlLee1983/ecpay-logistics-node/commit/a7868e3db7d442713375e5696e4905ccd376e70e))
+
 ## 1.0.0 (2025-12-08)
 
 
