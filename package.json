@@ -63,7 +63,9 @@
     "check:fix": "biome check --write .",
     "pre-commit": "bun run typecheck && bun run lint",
     "prepublishOnly": "bun run build",
-    "prepare": "bunx simple-git-hooks"
+    "prepare": "bunx simple-git-hooks",
+    "test:publish": "./scripts/test-publish.sh",
+    "publish:dry-run": "npm publish --dry-run --access public"
   },
   "author": "Carl",
   "license": "MIT",
