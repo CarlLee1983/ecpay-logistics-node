@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/CarlLee1983/ecpay-logistics-node/compare/v1.1.1...v1.2.0) (2025-12-11)
+
+
+### Features
+
+* Add `@types/bun` to devDependencies, `typescript` to peerDependencies, and mark the package as private. ([111073f](https://github.com/CarlLee1983/ecpay-logistics-node/commit/111073f6a367dae11d9e52a007393409c357eb60))
+* Enhance documentation and add utility functions for ECPay Logistics SDK ([736fa18](https://github.com/CarlLee1983/ecpay-logistics-node/commit/736fa188517073d90041fb458c97752a6366379a))
+
 ## [1.1.1](https://github.com/CarlLee1983/ecpay-logistics-node/compare/v1.1.0...v1.1.1) (2025-12-08)
 
 
