@@ -63,7 +63,7 @@
     "check:fix": "biome check --write .",
     "pre-commit": "bun run typecheck && bun run lint",
     "prepublishOnly": "bun run build",
-    "prepare": "simple-git-hooks"
+    "prepare": "bunx simple-git-hooks"
   },
   "author": "Carl",
   "license": "MIT",
@@ -77,7 +77,6 @@
   "simple-git-hooks": {
     "pre-commit": "bun run pre-commit"
   },
-  "private": true,
   "peerDependencies": {
     "typescript": "^5"
   }
