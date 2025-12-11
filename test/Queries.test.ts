@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'bun:test'
-import { QueryLogisticsOrder } from '../src/queries/QueryLogisticsOrder.js'
-import { GetStoreList } from '../src/queries/GetStoreList.js'
+import { LogisticsSubType } from '../src/enums/LogisticsSubType.js'
 import { StoreType } from '../src/enums/StoreType.js'
 import { LogisticsError } from '../src/errors/LogisticsError.js'
-import { LogisticsSubType } from '../src/enums/LogisticsSubType.js'
+import { GetStoreList } from '../src/queries/GetStoreList.js'
+import { QueryLogisticsOrder } from '../src/queries/QueryLogisticsOrder.js'
 
 const merchantID = '2000132'
 const hashKey = '5294y06JbISpM5x9'

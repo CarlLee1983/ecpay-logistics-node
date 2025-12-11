@@ -37,7 +37,39 @@ export interface ILogisticsNotifyResult {
   /** 托運單號 */
   BookingNote?: string
   /** 其他欄位 */
-  [key: string]: any
+  [key: string]: unknown
+}
+
+/**
+ * 驗證通知資料的 CheckMacValue
+ *
+ * @param params - ECPay 傳送的通知資料
+ * @param hashKey - HashKey
+ * @param hashIV - HashIV
+ * @returns 驗證是否通過
+ */
+export function verifyLogisticsNotify(
+  params: Record<string, unknown>,
+  hashKey: string,
+  hashIV: string
+): boolean {
+  const { CheckMacValue, ...rest } = params as { CheckMacValue?: string; [key: string]: unknown }
+
+  // 重新計算 CheckMacValue
+  const encoder = new CheckMacEncoder(hashKey, hashIV)
+  const calculatedMac = encoder.generateCheckMacValue(rest)
+
+  return calculatedMac === CheckMacValue
+}
+
+/**
+ * 解析通知資料
+ *
+ * @param params - ECPay 傳送的通知資料
+ * @returns 型別化的通知結果物件
+ */
+export function parseLogisticsNotify(params: Record<string, unknown>): ILogisticsNotifyResult {
+  return params as unknown as ILogisticsNotifyResult
 }
 
 /**
@@ -48,6 +80,8 @@ export interface ILogisticsNotifyResult {
  * @example
  * ```typescript
  * // Express.js 範例
+ * import { LogisticsNotify } from 'ecpay-logistics-node'
+ *
  * app.post('/ecpay/callback', (req, res) => {
  *   const isValid = LogisticsNotify.verify(req.body, 'hashKey', 'hashIV')
  *   if (!isValid) {
@@ -61,32 +95,7 @@ export interface ILogisticsNotifyResult {
  * })
  * ```
  */
-export class LogisticsNotify {
-  /**
-   * 驗證通知資料的 CheckMacValue
-   *
-   * @param params - ECPay 傳送的通知資料
-   * @param hashKey - HashKey
-   * @param hashIV - HashIV
-   * @returns 驗證是否通過
-   */
-  public static verify(params: Record<string, any>, hashKey: string, hashIV: string): boolean {
-    const { CheckMacValue, ...rest } = params
-
-    // 重新計算 CheckMacValue
-    const encoder = new CheckMacEncoder(hashKey, hashIV)
-    const calculatedMac = encoder.generateCheckMacValue(rest)
-
-    return calculatedMac === CheckMacValue
-  }
-
-  /**
-   * 解析通知資料
-   *
-   * @param params - ECPay 傳送的通知資料
-   * @returns 型別化的通知結果物件
-   */
-  public static parse(params: Record<string, any>): ILogisticsNotifyResult {
-    return params as unknown as ILogisticsNotifyResult
-  }
+export const LogisticsNotify = {
+  verify: verifyLogisticsNotify,
+  parse: parseLogisticsNotify,
 }

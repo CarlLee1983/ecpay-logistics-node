@@ -1,6 +1,6 @@
 import { Content } from '../base/Content.js'
-import { LogisticsError } from '../errors/LogisticsError.js'
 import { LogisticsSubType } from '../enums/LogisticsSubType.js'
+import { LogisticsError } from '../errors/LogisticsError.js'
 
 /**
  * PrintCvsDocument - 列印超商 C2C 取貨單

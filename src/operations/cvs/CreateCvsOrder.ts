@@ -1,8 +1,8 @@
 import { Content } from '../../base/Content.js'
-import { LogisticsError } from '../../errors/LogisticsError.js'
 import { IsCollection } from '../../enums/IsCollection.js'
 import { LogisticsSubType, LogisticsSubTypeHelpers } from '../../enums/LogisticsSubType.js'
 import { LogisticsType } from '../../enums/LogisticsType.js'
+import { LogisticsError } from '../../errors/LogisticsError.js'
 import { getCurrentECPayDateTime } from '../../utils/date.js'
 
 /**

@@ -1,4 +1,4 @@
-import { CheckMacEncoder } from '../security/CheckMacEncoder.js'
+import type { CheckMacEncoder } from '../security/CheckMacEncoder.js'
 
 /**
  * ILogisticsCommand - 物流指令介面
@@ -15,7 +15,7 @@ export interface ILogisticsCommand {
    * @returns 請求內容物件
    * @throws {LogisticsError} 當驗證失敗時
    */
-  getPayload(): Record<string, any>
+  getPayload(): Record<string, unknown>
 
   /**
    * 取得已簽章的請求內容
@@ -25,7 +25,7 @@ export interface ILogisticsCommand {
    * @returns 包含 CheckMacValue 的請求內容物件
    * @throws {LogisticsError} 當驗證失敗時
    */
-  getContent(): Record<string, any>
+  getContent(): Record<string, unknown>
 
   /**
    * 取得 API 請求路徑

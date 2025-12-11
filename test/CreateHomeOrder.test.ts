@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'bun:test'
-import { CreateHomeOrder } from '../src/operations/home/CreateHomeOrder.js'
-import { LogisticsSubType } from '../src/enums/LogisticsSubType.js'
-import { Temperature } from '../src/enums/Temperature.js'
 import { Distance } from '../src/enums/Distance.js'
-import { Specification } from '../src/enums/Specification.js'
-import { ScheduledPickupTime } from '../src/enums/ScheduledPickupTime.js'
+import { LogisticsSubType } from '../src/enums/LogisticsSubType.js'
 import { ScheduledDeliveryTime } from '../src/enums/ScheduledDeliveryTime.js'
+import { ScheduledPickupTime } from '../src/enums/ScheduledPickupTime.js'
+import { Specification } from '../src/enums/Specification.js'
+import { Temperature } from '../src/enums/Temperature.js'
 import { LogisticsError } from '../src/errors/LogisticsError.js'
+import { CreateHomeOrder } from '../src/operations/home/CreateHomeOrder.js'
 
 describe('CreateHomeOrder', () => {
   const merchantID = '2000132'
@@ -17,7 +17,7 @@ describe('CreateHomeOrder', () => {
     const create = new CreateHomeOrder(merchantID, hashKey, hashIV)
     create
       .useTcat()
-      .setMerchantTradeNo('Home' + Date.now().toString().slice(-8))
+      .setMerchantTradeNo(`Home${Date.now().toString().slice(-8)}`)
       .setMerchantTradeDate(new Date())
       .setServerReplyURL('http://url')
       .setSenderName('Sender')
@@ -53,7 +53,7 @@ describe('CreateHomeOrder', () => {
     const create = new CreateHomeOrder(merchantID, hashKey, hashIV)
     create
       .usePostNormal()
-      .setMerchantTradeNo('Post' + Date.now().toString().slice(-8))
+      .setMerchantTradeNo(`Post${Date.now().toString().slice(-8)}`)
       .setMerchantTradeDate(new Date())
       .setServerReplyURL('http://url')
       .setSenderName('Sender')

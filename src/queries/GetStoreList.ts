@@ -1,7 +1,7 @@
 import { Content } from '../base/Content.js'
-import { LogisticsError } from '../errors/LogisticsError.js'
 import { LogisticsSubType, LogisticsSubTypeHelpers } from '../enums/LogisticsSubType.js'
 import { StoreType } from '../enums/StoreType.js'
+import { LogisticsError } from '../errors/LogisticsError.js'
 
 /**
  * GetStoreList - 查詢門市清單

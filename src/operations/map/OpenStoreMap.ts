@@ -1,9 +1,9 @@
 import { Content } from '../../base/Content.js'
-import { LogisticsError } from '../../errors/LogisticsError.js'
-import { LogisticsType } from '../../enums/LogisticsType.js'
-import { LogisticsSubType, LogisticsSubTypeHelpers } from '../../enums/LogisticsSubType.js'
-import { IsCollection } from '../../enums/IsCollection.js'
 import { Device } from '../../enums/Device.js'
+import { IsCollection } from '../../enums/IsCollection.js'
+import { LogisticsSubType, LogisticsSubTypeHelpers } from '../../enums/LogisticsSubType.js'
+import { LogisticsType } from '../../enums/LogisticsType.js'
+import { LogisticsError } from '../../errors/LogisticsError.js'
 
 /**
  * OpenStoreMap - 開啟門市地圖選擇器

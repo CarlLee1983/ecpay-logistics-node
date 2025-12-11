@@ -1,6 +1,6 @@
 import { Content } from '../base/Content.js'
-import { LogisticsError } from '../errors/LogisticsError.js'
 import { LogisticsSubType } from '../enums/LogisticsSubType.js'
+import { LogisticsError } from '../errors/LogisticsError.js'
 
 /**
  * PrintTradeDocument - 列印 B2C/宅配 託運單

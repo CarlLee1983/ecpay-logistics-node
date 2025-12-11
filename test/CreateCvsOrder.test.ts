@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'bun:test'
-import { CreateCvsOrder } from '../src/operations/cvs/CreateCvsOrder.js'
-import { LogisticsSubType } from '../src/enums/LogisticsSubType.js'
 import { IsCollection } from '../src/enums/IsCollection.js'
+import { LogisticsSubType } from '../src/enums/LogisticsSubType.js'
 import { LogisticsError } from '../src/errors/LogisticsError.js'
+import { CreateCvsOrder } from '../src/operations/cvs/CreateCvsOrder.js'
 
 describe('CreateCvsOrder', () => {
   const merchantID = '2000132'
@@ -13,7 +13,7 @@ describe('CreateCvsOrder', () => {
     const create = new CreateCvsOrder(merchantID, hashKey, hashIV)
     create
       .useUnimartC2C()
-      .setMerchantTradeNo('OC2C' + Date.now().toString().slice(-8)) // Ensure < 20
+      .setMerchantTradeNo(`OC2C${Date.now().toString().slice(-8)}`) // Ensure < 20
       .setMerchantTradeDate(new Date())
       .setServerReplyURL('https://example.com/callback')
       .setSenderName('Sender')
@@ -35,7 +35,7 @@ describe('CreateCvsOrder', () => {
     const create = new CreateCvsOrder(merchantID, hashKey, hashIV)
     create
       .useFamiB2C()
-      .setMerchantTradeNo('OB2C' + Date.now().toString().slice(-8))
+      .setMerchantTradeNo(`OB2C${Date.now().toString().slice(-8)}`)
       .setMerchantTradeDate(new Date())
       .setServerReplyURL('https://example.com/callback')
       .setSenderName('Sender') // Required field
@@ -94,7 +94,7 @@ describe('CreateCvsOrder', () => {
 
   it('should correctly update subtype when switching methods', () => {
     const create = new CreateCvsOrder(merchantID, hashKey, hashIV)
-    create.setMerchantTradeNo('T' + Date.now().toString().slice(-10))
+    create.setMerchantTradeNo(`T${Date.now().toString().slice(-10)}`)
     create.setMerchantTradeDate(new Date())
     create.setGoodsName('Test')
     create.setSenderName('Sender')
@@ -114,7 +114,7 @@ describe('CreateCvsOrder', () => {
     const create = new CreateCvsOrder(merchantID, hashKey, hashIV)
     // Set required fields first
     create.useUnimartC2C()
-    create.setMerchantTradeNo('TestOpt' + Date.now())
+    create.setMerchantTradeNo(`TestOpt${Date.now()}`)
     create.setMerchantTradeDate(new Date())
     create.setGoodsName('Test Goods')
     create.setSenderName('Sender')

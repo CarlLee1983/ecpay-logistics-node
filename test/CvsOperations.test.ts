@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'bun:test'
-import { UpdateCvsOrder } from '../src/operations/cvs/UpdateCvsOrder.js'
+import { LogisticsError } from '../src/errors/LogisticsError.js'
 import { CancelCvsOrder } from '../src/operations/cvs/CancelCvsOrder.js'
 import { ReturnCvsOrder } from '../src/operations/cvs/ReturnCvsOrder.js'
-import { LogisticsError } from '../src/errors/LogisticsError.js'
+import { UpdateCvsOrder } from '../src/operations/cvs/UpdateCvsOrder.js'
 
 const merchantID = '2000132'
 const hashKey = '5294y06JbISpM5x9'

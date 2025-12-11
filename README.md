@@ -18,12 +18,10 @@ Un official ECPay Logistics (綠界物流) SDK for Node.js, written in TypeScrip
 
 ## Installation
 
-```bash
-npm install ecpay-logistics-node
-# or
-pnpm add ecpay-logistics-node
-# or
-bun add ecpay-logistics-node
+with npm
+
+```
+npm install 
 ```
 
 ## Usage

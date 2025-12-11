@@ -1,6 +1,6 @@
-import { CheckMacEncoder } from '../security/CheckMacEncoder.js'
 import { LogisticsError } from '../errors/LogisticsError.js'
-import { ILogisticsCommand } from '../interfaces/ILogisticsCommand.js'
+import type { ILogisticsCommand } from '../interfaces/ILogisticsCommand.js'
+import { CheckMacEncoder } from '../security/CheckMacEncoder.js'
 import { formatECPayDateTime } from '../utils/date.js'
 
 /**
@@ -41,7 +41,7 @@ export abstract class Content implements ILogisticsCommand {
   protected serverUrl = 'https://logistics-stage.ecpay.com.tw'
 
   /** 請求內容 */
-  protected content: Record<string, any> = {}
+  protected content: Record<string, unknown> = {}
 
   /** CheckMacValue 編碼器實例 */
   protected encoder: CheckMacEncoder | null = null
@@ -265,7 +265,7 @@ export abstract class Content implements ILogisticsCommand {
    * @returns 請求內容物件
    * @throws {LogisticsError} 當驗證失敗時
    */
-  public getPayload(): Record<string, any> {
+  public getPayload(): Record<string, unknown> {
     this.validate()
     this.content.MerchantID = this.merchantID
     return this.content
@@ -277,7 +277,7 @@ export abstract class Content implements ILogisticsCommand {
    * @returns 包含 CheckMacValue 的請求內容物件
    * @throws {LogisticsError} 當驗證失敗時
    */
-  public getContent(): Record<string, any> {
+  public getContent(): Record<string, unknown> {
     const payload = this.getPayload()
     const encoder = this.getEncoder()
     return encoder.encodePayload(payload)

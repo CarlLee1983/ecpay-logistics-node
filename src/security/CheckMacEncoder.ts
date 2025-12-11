@@ -44,7 +44,7 @@ export class CheckMacEncoder {
    * @param payload - 原始請求內容
    * @returns 包含 CheckMacValue 的請求內容
    */
-  encodePayload(payload: Record<string, any>): Record<string, any> {
+  encodePayload(payload: Record<string, unknown>): Record<string, unknown> {
     const data = { ...payload }
     delete data.CheckMacValue
 
@@ -58,7 +58,7 @@ export class CheckMacEncoder {
    * @param responseData - ECPay 回應資料
    * @returns 驗證是否通過
    */
-  verifyResponse(responseData: Record<string, any>): boolean {
+  verifyResponse(responseData: Record<string, unknown>): boolean {
     if (!responseData.CheckMacValue) {
       return false
     }
@@ -79,7 +79,7 @@ export class CheckMacEncoder {
    * @returns 原始回應資料
    * @throws {LogisticsError} 當 CheckMacValue 驗證失敗時
    */
-  verifyOrFail(responseData: Record<string, any>): Record<string, any> {
+  verifyOrFail(responseData: Record<string, unknown>): Record<string, unknown> {
     if (!this.verifyResponse(responseData)) {
       throw LogisticsError.checkMacValueFailed()
     }
@@ -100,14 +100,14 @@ export class CheckMacEncoder {
    * @param data - 要計算 CheckMacValue 的資料
    * @returns 大寫的 MD5 雜湊值
    */
-  generateCheckMacValue(data: Record<string, any>): string {
+  generateCheckMacValue(data: Record<string, unknown>): string {
     // 1. 依 key 字母順序排序（不區分大小寫）
     const sortedKeys = Object.keys(data).sort((a, b) =>
       a.toLowerCase().localeCompare(b.toLowerCase())
     )
 
     // 2. 組合 query string
-    const pairs = sortedKeys.map((key) => `${key}=${data[key]}`)
+    const pairs = sortedKeys.map((key) => `${key}=${String(data[key] ?? '')}`)
     const queryString = pairs.join('&')
 
     // 3. 加上 HashKey 和 HashIV

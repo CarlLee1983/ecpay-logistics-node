@@ -12,7 +12,7 @@ Thank you for your interest in contributing! We welcome bug reports, feature req
 
 ### 2. Development Setup
 
-This project uses [Bun](https://bun.sh/) for testing and [pnpm](https://pnpm.io/) / [npm](https://www.npmjs.com/) for package management.
+This project uses [Bun](https://bun.sh/) for package management, testing, and development.
 
 ```bash
 # Clone the repo
@@ -29,13 +29,22 @@ bun test
 bun run lint
 ```
 
+**Git Hooks**: This project uses [simple-git-hooks](https://github.com/toplenboren/simple-git-hooks) to run pre-commit checks. When you commit, it will automatically:
+- Run TypeScript type checking
+- Run Biome linting
+
+If any check fails, the commit will be blocked. Fix the issues and try again.
+
+The hooks are configured in `package.json` under the `simple-git-hooks` field. After installing dependencies, run `bun run prepare` to set up the hooks.
+
 ### 3. Coding Guidelines
 
 - **TypeScript**: We use strict TypeScript. Ensure all types are defined (avoid `any`).
-- **Style**: We use `eslint` and `prettier` (via `eslint-plugin-prettier`).
+- **Style**: We use [Biome](https://biomejs.dev/) for linting and formatting.
   - No semicolons.
   - Single quotes.
   - 2-space indentation.
+  - 100 character line width.
 - **Testing**: New features **must** include unit tests. We target >95% coverage.
 - **Commits**: Please follow [Conventional Commits](https://www.conventionalcommits.org/) (e.g., `feat: ...`, `fix: ...`, `docs: ...`).
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test'
-import { CheckMacEncoder } from '../src/security/CheckMacEncoder.js'
 import { LogisticsError } from '../src/errors/LogisticsError.js'
+import { CheckMacEncoder } from '../src/security/CheckMacEncoder.js'
 
 describe('CheckMacEncoder', () => {
   const hashKey = '5294y06JbISpM5x9'

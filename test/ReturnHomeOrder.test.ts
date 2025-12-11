@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test'
-import { ReturnHomeOrder } from '../src/operations/home/ReturnHomeOrder.js'
 import { LogisticsError } from '../src/errors/LogisticsError.js'
+import { ReturnHomeOrder } from '../src/operations/home/ReturnHomeOrder.js'
 
 describe('ReturnHomeOrder', () => {
   const merchantID = '2000132'

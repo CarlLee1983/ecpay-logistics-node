@@ -60,4 +60,3 @@ export function getCurrentECPayDateTime(): string {
 export function getCurrentECPayDate(): string {
   return formatECPayDate(new Date())
 }
-
