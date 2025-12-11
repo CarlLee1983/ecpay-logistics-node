@@ -1,5 +1,36 @@
 /**
  * ECPay Logistics SDK for Node.js
+ *
+ * 綠界物流 Node.js SDK，提供完整的物流功能支援：
+ * - 超商取貨（C2C/B2C）
+ * - 宅配物流（黑貓/郵局）
+ * - 物流狀態查詢
+ * - 託運單列印
+ * - 門市地圖選擇
+ *
+ * @packageDocumentation
+ * @example
+ * ```typescript
+ * import {
+ *   CreateCvsOrder,
+ *   LogisticsSubType,
+ *   IsCollection
+ * } from 'ecpay-logistics-node'
+ *
+ * const order = new CreateCvsOrder('merchantID', 'hashKey', 'hashIV')
+ *   .useUnimartC2C()
+ *   .setMerchantTradeNo('ORDER001')
+ *   .setGoodsName('測試商品')
+ *   .setGoodsAmount(500)
+ *   .setSenderName('寄件人')
+ *   .setSenderCellPhone('0912345678')
+ *   .setReceiverName('收件人')
+ *   .setReceiverCellPhone('0987654321')
+ *   .setReceiverStoreID('991182')
+ *   .setServerReplyURL('https://example.com/callback')
+ *
+ * const content = order.getContent()
+ * ```
  */
 
 // Base & Interfaces
@@ -11,6 +42,9 @@ export * from './errors/LogisticsError.js'
 
 // Security
 export * from './security/CheckMacEncoder.js'
+
+// Utils
+export * from './utils/date.js'
 
 // Enums
 export * from './enums/Device.js'
